@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_userImage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        />
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:layout_alignTop="@+id/img_userImage"
+        android:layout_toEndOf="@+id/img_userImage"
+        android:layout_marginTop="5dp"
+        android:textColor="#A9A9A9"
+        android:layout_marginLeft="12dp"
+        android:textSize="14sp"
+        />
+
+    <TextView
+        android:id="@+id/repository_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Repository Name"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/img_userImage"
+        android:layout_alignLeft="@+id/img_userImage"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descrription"
+        android:textColor="#000000"
+        android:layout_below="@+id/repository_name"
+        android:layout_alignStart="@+id/img_userImage"
+        android:textSize="16sp"
+        />
+
+    <ImageView
+        android:id="@+id/star_image"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/description"
+        android:layout_alignStart="@+id/img_userImage"
+        android:textSize="16sp"
+        android:src="@drawable/ic_baseline_star_24"
+        />
+
+    <TextView
+        android:id="@+id/star_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2.9 k"
+        android:layout_marginTop="3dp"
+        android:textColor="#A9A9A9"
+        android:layout_alignTop="@+id/star_image"
+        android:layout_toEndOf="@+id/star_image"
+        android:textSize="10sp"
+        android:layout_marginStart="8dp"
+        />
+
+</RelativeLayout>

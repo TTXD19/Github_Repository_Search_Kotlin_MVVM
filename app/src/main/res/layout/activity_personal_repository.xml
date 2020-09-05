@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PersonaActivity.PersonalActivity">
+
+    <TextView
+        android:id="@+id/heading_label_personal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Personal Repositories"
+        android:textColor="#555555"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:autofillHints="username"
+        android:hint="username"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="15dp"
+        android:autofillHints="password"
+        android:hint="password (optional)"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:layout_above="@+id/btnGitUserPasswordLogin"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnGitUserPasswordLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Github Login (User Password)"
+        android:textAllCaps="false"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/btn_userpass_login"
+        android:textColor="#FFFFFF"
+        />
+
+
+    <Button
+        android:id="@+id/btnGitLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Github Login"
+        android:textAllCaps="false"
+        android:background="@drawable/btn_layout"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/btnGitUserPasswordLogin"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        />
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_personal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/list_item_layout"
+        android:visibility="gone"
+        android:layout_below="@+id/heading_label_personal"/>
+
+</RelativeLayout>

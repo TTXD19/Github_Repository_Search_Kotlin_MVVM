@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Github_Repository_Search_Kotlin_MVVM"

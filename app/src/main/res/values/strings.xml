@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Github_Repository_Search_Kotlin_MVVM</string>
+    <string name="search_here">Search here</string>
+    <string name="personal_repositories">Personal Repositories</string>
+</resources>
