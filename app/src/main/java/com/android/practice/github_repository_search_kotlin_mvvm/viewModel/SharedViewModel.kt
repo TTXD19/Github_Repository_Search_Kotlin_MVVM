@@ -11,15 +11,19 @@ class SharedViewModel : ViewModel() {
 
 
     val sharedRepository = SharedRepository()
-    //SharedRepository sharedRepository = new Shra...()
 
-    fun runData() {
-        sharedRepository.getPublicData()
+    fun runData(keyword: String, page: Int) {
+        sharedRepository.getPublicData(keyword, page)
     }
 
-
+    fun getPrivateRepo(clien_id: String, client_secret: String, code: String){
+        sharedRepository.getAccessToken(clien_id, client_secret, code)
+    }
 
     //ToMain
     val toMain: LiveData<RepoModel>
         get() = sharedRepository.repository
+
+    val toMainPrivateRepo: LiveData<List<Item>>
+        get() = sharedRepository.privateRepo
 }
