@@ -71,8 +71,8 @@ class SharedRepository {
             ) {
                 if (response.isSuccessful) {
                     val tokenModel = response.body()
-                    getPrivatUserRepo(tokenModel!!.accessToken)
-                    Log.d("token", tokenModel!!.accessToken)
+                    getPrivatUserRepo("token " + tokenModel!!.accessToken)
+                    Log.d("token", tokenModel.accessToken)
                 }
             }
 
@@ -96,11 +96,13 @@ class SharedRepository {
             override fun onResponse(call: Call<List<Item>>, response: Response<List<Item>>) {
                 if (response.isSuccessful) {
                     mPrivateRepo.value = response.body()
+                }else{
+                    Log.d("Message", response.message())
                 }
             }
 
             override fun onFailure(call: Call<List<Item>>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.d("MessageFail", t.message)
             }
 
         })

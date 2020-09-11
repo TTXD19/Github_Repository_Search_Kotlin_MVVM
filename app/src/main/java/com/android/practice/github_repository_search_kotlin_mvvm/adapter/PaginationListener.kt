@@ -1,4 +1,4 @@
-package com.android.practice.github_repository_search_kotlin_mvvm
+package com.android.practice.github_repository_search_kotlin_mvvm.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager

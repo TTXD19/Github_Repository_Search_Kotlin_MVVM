@@ -37,7 +37,7 @@ interface GitJsonAPI {
 
     @GET("user/repos")
     fun getUsersRepo(
-        @Query("access_token") accessToken: String
+        @Header("Authorization") accessToken: String
     ): Call<List<Item>>
 
 

@@ -63,7 +63,7 @@
             android:layout_marginTop="20dp"
             android:textColor="#555555"
             android:textSize="24sp"
-            tools:text="Repository Search"/>
+            android:text="@string/repository_search"/>
 
         <TextView
             android:id="@+id/txtPage"
@@ -78,10 +78,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewMain"
             android:layout_width="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_pesonal"
             android:layout_marginTop="5dp"
-            tools:listitem="@layout/list_item_layout" />
+            tools:listitem="@layout/list_item_layout"/>
 
 
 </RelativeLayout>

@@ -9,20 +9,26 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.android.practice.github_repository_search_kotlin_mvvm.Model.Item
 import com.android.practice.github_repository_search_kotlin_mvvm.R
 import com.android.practice.github_repository_search_kotlin_mvvm.Repository.SharedRepository
+import com.android.practice.github_repository_search_kotlin_mvvm.adapter.MainOnClickListener
+import com.android.practice.github_repository_search_kotlin_mvvm.adapter.PersonalAdapter
 import com.android.practice.github_repository_search_kotlin_mvvm.viewModel.SharedViewModel
 
 class PersonalActivity : AppCompatActivity() {
 
     lateinit var editEmail: EditText
     lateinit var btnLogin: Button
+    lateinit var recyclerView: RecyclerView
 
     private val client_id = "a381e2f9b598fa45fb3e"
     private val client_secret = "18f8ec73b7906980f3c989487c811ee55f7f5237"
     private val redirect_url = "kotlinloginmvvm://callback"
-    val sharedRepo = SharedRepository()
     var shareViewModel = SharedViewModel()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,11 +36,24 @@ class PersonalActivity : AppCompatActivity() {
 
         btnLogin = findViewById(R.id.btnGitUserPasswordLogin)
         editEmail = findViewById(R.id.username)
+        recyclerView = findViewById(R.id.recyclerView_personal)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
 
         shareViewModel = ViewModelProviders.of(this).get(SharedViewModel::class.java)
         shareViewModel.toMainPrivateRepo.observe(this, {
             val name = it.get(0).fullName
+            val personalAdapter = PersonalAdapter(this, it.toMutableList())
+            recyclerView.adapter = personalAdapter
+            personalAdapter.onClickListener(object : MainOnClickListener{
+                override fun onClicked(position: Int, itemList: MutableList<Item?>) {
+                    Log.d("repoName", itemList.get(position)!!.fullName)
+                }
+
+            })
+            recyclerView.visibility = View.VISIBLE
+            editEmail.visibility = View.INVISIBLE
+            btnLogin.visibility = View.INVISIBLE
             Log.d("Personal", name)
         })
 
@@ -52,7 +71,6 @@ class PersonalActivity : AppCompatActivity() {
         super.onResume()
         val uri = intent.data
         if (uri != null){
-            Log.d("Personal", uri.toString())
             val code = uri.getQueryParameter("code")
             shareViewModel.getPrivateRepo(client_id, client_secret, code!!)
         }
