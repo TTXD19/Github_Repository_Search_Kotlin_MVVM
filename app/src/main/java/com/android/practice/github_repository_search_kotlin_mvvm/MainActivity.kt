@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
-       // ActivityMainBinding.bind()
-        
+       // ActivityMainBinding.bind()kl
+
         setContentView(R.layout.activity_main)
         recyclerView = recyclerViewMain
         recyclerView = findViewById(R.id.recyclerViewMain)
